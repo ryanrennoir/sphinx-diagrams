@@ -117,7 +117,8 @@ def render_diagrams(
 
     ensuredir(path.dirname(output_filename))
 
-    python_args = [sys.executable, "-", Path(fname).stem, "false"]
+    # Pass the tmp directory of sphinx-multiversion to the script via args
+    python_args = [sys.executable, "-", Path(fname).stem, "false", os.getcwd()]
 
     env = os.environ.copy()
 
